@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 336062687}
   - component: {fileID: 336062686}
   m_Layer: 5
-  m_Name: Fish Value Text (Legacy)
+  m_Name: Fish Value Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 394584100}
   - component: {fileID: 394584099}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Add Fish Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,10 +287,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 9b799f9cead261540a30c889001130d1, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 651534383}
+        m_TargetAssemblyTypeName: AngelaChau.TextDisplay, Assembly-CSharp
+        m_MethodName: CatchAnotherFIsh
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 486067301}
   - component: {fileID: 486067300}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Release Fish Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 486067301}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 651534383}
+        m_TargetAssemblyTypeName: AngelaChau.TextDisplay, Assembly-CSharp
+        m_MethodName: CatchAnotherFIsh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &486067301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +711,7 @@ GameObject:
   - component: {fileID: 651534384}
   - component: {fileID: 651534383}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Catch New Fish (TextDisplayScript)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,6 +729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b799f9cead261540a30c889001130d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplaySpecies: {fileID: 1769229149}
+  textDisplayLength: {fileID: 1879543975}
+  textDisplayValue: {fileID: 336062684}
   species:
   - Orange ClownFish
   - Blackstorm Clownfish
@@ -738,7 +753,7 @@ MonoBehaviour:
   - 200
   - 200
   value: 32000000f401000014000000dc050000f40100005e0100009411000080700000
-  textDisplaySpecies: {fileID: 1769229149}
+  aquariumValue: 0
 --- !u!4 &651534384
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f43ea7f96a8324cb4c093d834d4b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplaySpecies: {fileID: 0}
+  textDisplayLength: {fileID: 0}
+  textDisplayValue: {fileID: 0}
   species:
   - Orange ClownFish
   - Blackstorm Clownfish
@@ -899,6 +917,9 @@ MonoBehaviour:
   - Great Barracuda
   - Yellowfin Tuna
   - Yellowfin Tuna
+  length: []
+  value: 
+  aquariumValue: 0
 --- !u!4 &1067106415
 Transform:
   m_ObjectHideFlags: 0
@@ -926,10 +947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f679c5ff4a4724cb3e0fb5f45fc9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesPrefab: 3
-  species: 00000000
-  size:
-  - 8
+  chosenSpecies: 0
+  length: 0
+  value: 0
+  textDisplaySpecies: {fileID: 0}
+  textDisplayLength: {fileID: 0}
+  textDisplayValue: {fileID: 0}
 --- !u!1 &1130369145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1033,7 @@ GameObject:
   - component: {fileID: 1769229152}
   - component: {fileID: 1769229151}
   m_Layer: 5
-  m_Name: Fish Species Text (Legacy)
+  m_Name: Fish Species Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,7 +1195,7 @@ GameObject:
   - component: {fileID: 1879543978}
   - component: {fileID: 1879543977}
   m_Layer: 5
-  m_Name: Fish Length Text (Legacy)
+  m_Name: Fish Length Tex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

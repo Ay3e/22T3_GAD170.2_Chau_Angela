@@ -2,95 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace AngelaChau{
+using TMPro;
+namespace AngelaChau
+{
     public class Fishing : MonoBehaviour
     {
-        [SerializeField] private string[] species = {"Orange ClownFish", "Blackstorm Clownfish", "Angelfish", "Yellowtang", "Ribbontail Ray", "Salmon", "Great Barracuda", "Yellowfin Tuna", "Goliath Grouper" };
-        private float length;
-        private int value;
+        //UI Text GameObjects
+        public GameObject textDisplaySpecies;
+        public GameObject textDisplayLength;
+        public GameObject textDisplayValue;
+
+        //GameVariables for text changes
+        [SerializeField] private string[] species = { "ORANGE CLOWNFISH", "BLACKSTORM CLOWNFISH", "ANGELFISH", "YELLOWTANG", "RIBBONTAIL RAY", "SALMON", "GREAT BARRACUDA", "YELLOWFIN TUNA", "GOLIATH GROUPER" };
+        [SerializeField] private float[] length = { 8, 8, 15, 15, 70, 100, 100, 200, 200 };
+        [SerializeField] private int[] value = { 50, 500, 20, 1500, 500, 350, 4500, 9000 };
+        //GameVariables for rounds
+        private int roundCounter = 0;
+        private int maxRound = 10;
+        //GameVariables for Aquarium Value
+        [SerializeField] public int aquariumValue;
 
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
         void Update()
         {
-            //LengthOfSpecies needs to be run every round
+            textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: " + species[roundCounter];
+            textDisplayLength.GetComponent<Text>().text = "FISH LENGTH: " + length[roundCounter] + "cm";
+            textDisplayValue.GetComponent<Text>().text = "FISH VALUE: $" + value[roundCounter];
 
         }
 
-        void LengthOfSpecies()
+        public void CatchAnotherFIsh()
         {
-            for(int i=0; i<species.Length; i++) {
-                if (species[i] == "Orange ClownFish" || species[i] == "Blackstorm Clownfish")
-                {
-                    length = 8;
-                }
-                if (species[i] == "Angelfish" || species[i] == "Yellowtang")
-                {
-                    length = 15;
-                }
-                if (species[i] == "Ribbontail Ray")
-                {
-                    length = 70;
-                }
-                if (species[i] == "Salmon" || species[i] == "Great Barracuda")
-                {
-                    length = 100;
-                }
-                if (species[i] == "Yellowfin Tuna" || species[i] == "GoliathGrouper")
-                {
-                    length = 200;
-                }
-            }
+            roundCounter++;
         }
 
-        void ValueOfSpecies()
+        public void CheckIfFishIsEaten()
         {
-            for (int i = 0; i < species.Length; i++)
+            for (int i = 1; i < maxRound; i++)
             {
-                if (species[i] == "Orange ClownFish")
+                if (length[i] >= length[i - 1] * 2)
                 {
-                    value = 50;
+                    aquariumValue = -value[i - 1] + value[i];
                 }
-                if (species[i] == "Blackstorm Clownfish")
+                else
                 {
-                    value = 500;
-                }
-                if (species[i] == "Angelfish")
-                {
-                    value = 20;
-                }
-                if (species[i] == "Yellowtang")
-                {
-                    value = 80;
-                }
-                if (species[i] == "Ribbontail Ray")
-                {
-                    value = 1500;
-                }
-                if (species[i] == "Salmon")
-                {
-                    value = 500;
-                }
-                if (species[i] == "Great Barracuda")
-                {
-                    value = 350;
-                }
-                if (species[i] == "Yellowfin Tuna")
-                {
-                    value = 4500;
-                }
-                if (species[i] == "Goliath Grouper")
-                {
-                    value = 28800;
+                    aquariumValue = aquariumValue + value[i];
                 }
             }
         }
     }
 }
-
