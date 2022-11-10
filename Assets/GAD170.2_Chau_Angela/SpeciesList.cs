@@ -26,40 +26,40 @@ namespace AngelaChau
                 case Species.Undefined:
                     break;
                 case Species.OrangeClownFish:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: ORANGE CLOWNFISH";
+                    SetupSpecies(8, 50);
                     Debug.Log("welcome");
                     //size: 8cm cost: 50
                     break;
                 case Species.BlackStormClownFish:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: BLACKSTORM CLOWNFISH";
+                    SetupSpecies(8, 500);
                     //8cm cost: 500
                     break;
                 case Species.AngelFish:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: ANGELFISH";
+                    SetupSpecies(15, 20);
                     //size: 15cm cost: 20
                     break;
                 case Species.YellowTang:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: YELLOWTANG";
+                    SetupSpecies(15, 80);
                     //size: 15cm cost: 80
                     break;
                 case Species.RibbonTailRay:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: RIBBONTAIL RAY";
+                    SetupSpecies(70, 1500);
                     //size: 70cm cost: 1,500
                     break;
                 case Species.Salmon:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: SALMON";
+                    SetupSpecies(100, 500);
                     //size: 1m cost: 500
                     break;
                 case Species.GreatBarracuda:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: GREAT BARRACUDA";
+                    SetupSpecies(100, 350);
                     //size: 1m cost: 350
                     break;
                 case Species.YellowFinTuna:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: YELLOWFIN TUNA";
+                    SetupSpecies(200, 4500);
                     //size: 2m cost: 4,500
                     break;
                 case Species.GoliathGrouper:
-                    textDisplaySpecies.GetComponent<Text>().text = "FISH SPECIES: GOLIATH GROUPER";
+                    SetupSpecies(200, 9000);
                     //size: 2m cost: 28,800
                     break;
                 default:
