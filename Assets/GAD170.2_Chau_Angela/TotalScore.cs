@@ -18,12 +18,15 @@ namespace AngelaChau
         private int roundCounter = 0;
         private int previousFishAdded = 1;
 
+        private int restartGame = 11;
+
         private void Update()
         {
+            RestartGame();
             //change the text for Aquarium Value
             textDisplayAquariumValue.GetComponent<Text>().text = "AQUARIUM VALUE: $" + aquariumValue;
             //Allowed user to test if aquarium value work in the console
-            Debug.Log(aquariumValue);
+            
         }
 
         public void ButtonPressedAdd()
@@ -35,7 +38,7 @@ namespace AngelaChau
             {
                 aquariumValue = value[roundCounter];
             }
-            //if its not the first round and fishes are added then check if pervious fish will be eaten in accending order
+            //if its not the first round and fishes are added then check if pervious fish
             else if(length[roundCounter]>=(length[roundCounter-previousFishAdded])*2)
             {
                 aquariumValue = aquariumValue - value[roundCounter - previousFishAdded];
@@ -53,6 +56,16 @@ namespace AngelaChau
             roundCounter++;
             //Allows you to find previous fish added from the array
             previousFishAdded++;
+        }
+        public void RestartGame()
+        {
+            if (roundCounter == restartGame)
+            {
+                aquariumValue = 0;
+                roundCounter = 0;
+                previousFishAdded = 1;
+
+            }
         }
     }
 }
